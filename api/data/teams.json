@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "code": "CSK",
+    "name": "Chennai Super Kings",
+    "city": "Chennai",
+    "coach": "Stephen Fleming",
+    "home_venue": "M. A. Chidambaram Stadium"
+  },
+  {
+    "id": 2,
+    "code": "MI",
+    "name": "Mumbai Indians",
+    "city": "Mumbai",
+    "coach": "Mark Boucher",
+    "home_venue": "Wankhede Stadium"
+  },
+  {
+    "id": 3,
+    "code": "RCB",
+    "name": "Royal Challengers Bengaluru",
+    "city": "Bengaluru",
+    "coach": "Andy Flower",
+    "home_venue": "M. Chinnaswamy Stadium"
+  },
+  {
+    "id": 4,
+    "code": "KKR",
+    "name": "Kolkata Knight Riders",
+    "city": "Kolkata",
+    "coach": "Chandrakant Pandit",
+    "home_venue": "Eden Gardens"
+  },
+  {
+    "id": 5,
+    "code": "RR",
+    "name": "Rajasthan Royals",
+    "city": "Jaipur",
+    "coach": "Kumar Sangakkara",
+    "home_venue": "Sawai Mansingh Stadium"
+  },
+  {
+    "id": 6,
+    "code": "SRH",
+    "name": "Sunrisers Hyderabad",
+    "city": "Hyderabad",
+    "coach": "Daniel Vettori",
+    "home_venue": "Rajiv Gandhi Intl Cricket Stadium"
+  },
+  {
+    "id": 7,
+    "code": "DC",
+    "name": "Delhi Capitals",
+    "city": "Delhi",
+    "coach": "Ricky Ponting",
+    "home_venue": "Arun Jaitley Stadium"
+  },
+  {
+    "id": 8,
+    "code": "PK",
+    "name": "Punjab Kings",
+    "city": "Mohali",
+    "coach": "Trevor Bayliss",
+    "home_venue": "HPCA Stadium"
+  },
+  {
+    "id": 9,
+    "code": "LSG",
+    "name": "Lucknow Super Giants",
+    "city": "Lucknow",
+    "coach": "Justin Langer",
+    "home_venue": "BRSABV Ekana Cricket Stadium"
+  },
+  {
+    "id": 10,
+    "code": "GT",
+    "name": "Gujarat Titans",
+    "city": "Ahmedabad",
+    "coach": "Ashish Nehra",
+    "home_venue": "Narendra Modi Stadium"
+  }
+]
