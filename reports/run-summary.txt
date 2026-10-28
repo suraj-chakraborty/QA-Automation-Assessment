@@ -1,0 +1,25 @@
+================================================================================
+                 STREAMHUB QA AUTOMATION — TEST RUN SUMMARY                     
+================================================================================
+Timestamp:         2026-10-28T15:08:18.521Z
+Node Version:      v24.4.0
+Platform:          Windows_NT 10.0.19045 (x64)
+Browser Engine:    Chromium (Playwright)
+Environment:       Local Development
+Execution Status:  SOME FAILED
+--------------------------------------------------------------------------------
+EXECUTION METRICS:
+  Total Features:   10
+  Total Scenarios:  96
+    - Passed:       91
+    - Failed:       5
+    - Skipped:      0
+  Total Steps:      469
+    - Passed:       464
+    - Failed:       5
+    - Skipped:      0
+  Total Duration:   53.79s
+--------------------------------------------------------------------------------
+REPORTS GENERATED:
+  Consolidated HTML: C:\Users\suraj\Desktop\job-assignment\reports\html\index.html
+================================================================================

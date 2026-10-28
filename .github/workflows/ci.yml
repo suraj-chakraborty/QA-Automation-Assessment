@@ -1,0 +1,100 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+  workflow_dispatch:
+
+jobs:
+  static-and-core-tests:
+    name: Lint, Typecheck, API & SQL Suites
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20 LTS
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify Prettier Code Formatting
+        run: npm run format:check
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Run TypeScript Strict Typecheck
+        run: npm run typecheck
+
+      - name: Verify Synthetic Domain Dataset Integrity
+        run: npm run data:verify
+
+      - name: Execute Express API Test Suite (Requirement B2)
+        run: npm run test:api
+
+      - name: Execute SQLite Seed and SQL Analytical Tests (Requirement B4)
+        run: |
+          npm run db:seed
+          npm run sql:verify
+          npm run test:sql
+
+  live-ui-tests:
+    name: Live EMI Site UI Automation (Cucumber + Playwright)
+    needs: static-and-core-tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    # Live third-party external site tests are resilient but marked allowed-fail in CI to prevent blocking builds on third-party network outages
+    continue-on-error: true
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20 LTS
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright Chromium Browser & OS Dependencies
+        run: npx playwright install --with-deps chromium
+
+      - name: Create local .env from .env.example
+        run: cp .env.example .env
+
+      - name: Execute Live EMI UI Test Suite (TC1 & TC2)
+        run: npm run test:ui
+
+      - name: Execute AI Self-Healing Verification Suite (5 Broken Locators)
+        continue-on-error: true
+        run: npm run test:self-heal
+
+      - name: Run AI Self-Healing POC (Mock Provider)
+        run: npm run heal -- --provider mock
+
+      - name: Generate Consolidated HTML Reports
+        run: npm run report
+
+      - name: Upload Test Reports Artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-execution-reports
+          path: |
+            reports/html/
+            reports/run-summary.txt
+            reports/*.json
+            healing/output/
+          retention-days: 14
