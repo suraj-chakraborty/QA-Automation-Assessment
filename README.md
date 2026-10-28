@@ -8,7 +8,7 @@ Production-grade test automation and engineering submission for **Section B** of
 
 ### Prerequisites
 
-- **Node.js**: `>= 20.0.0` LTS (Node 20 or Node 24 verified)
+- **Node.js**: `>= 22.0.0` LTS (Node 22 LTS or Node 24 verified)
 - **Package Manager**: `npm` (`>= 10.0.0`)
 - **Browser Engine**: Playwright Chromium
 
