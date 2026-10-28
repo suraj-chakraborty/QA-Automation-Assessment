@@ -1,0 +1,58 @@
+QUERY: 01_top_5_run_scorers.sql
+EXECUTION TIME: 1.52 ms | ROWS RETURNED: 5
+
+EXPLAIN QUERY PLAN:
+  |-- SEARCH m USING COVERING INDEX idx_matches_season (season=?)
+  |-- SEARCH perf USING INDEX idx_perf_match_id (match_id=?)
+  |-- SEARCH p USING INTEGER PRIMARY KEY (rowid=?)
+  |-- USE TEMP B-TREE FOR GROUP BY
+  |-- USE TEMP B-TREE FOR ORDER BY
+
+RESULTS:
+[
+  {
+    "player_id": 1,
+    "player_name": "Liam Sterling",
+    "team_code": "MI",
+    "total_runs": 533,
+    "innings_batted": 10,
+    "highest_score": 104,
+    "batting_average": 53.3
+  },
+  {
+    "player_id": 7,
+    "player_name": "Tariq Al-Mansoor",
+    "team_code": "DC",
+    "total_runs": 426,
+    "innings_batted": 9,
+    "highest_score": 105,
+    "batting_average": 47.33
+  },
+  {
+    "player_id": 2,
+    "player_name": "Aarav Varma",
+    "team_code": "CSK",
+    "total_runs": 325,
+    "innings_batted": 9,
+    "highest_score": 62,
+    "batting_average": 36.11
+  },
+  {
+    "player_id": 10,
+    "player_name": "Ethan Brooks",
+    "team_code": "LSG",
+    "total_runs": 306,
+    "innings_batted": 9,
+    "highest_score": 34,
+    "batting_average": 34
+  },
+  {
+    "player_id": 6,
+    "player_name": "Nathan Cross",
+    "team_code": "SRH",
+    "total_runs": 289,
+    "innings_batted": 8,
+    "highest_score": 55,
+    "batting_average": 36.13
+  }
+]

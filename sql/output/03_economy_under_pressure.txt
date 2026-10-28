@@ -1,0 +1,58 @@
+QUERY: 03_economy_under_pressure.sql
+EXECUTION TIME: 1.32 ms | ROWS RETURNED: 5
+
+EXPLAIN QUERY PLAN:
+  |-- SEARCH m USING COVERING INDEX idx_matches_season (season=?)
+  |-- SEARCH perf USING INDEX idx_perf_match_id (match_id=?)
+  |-- SEARCH p USING INTEGER PRIMARY KEY (rowid=?)
+  |-- USE TEMP B-TREE FOR GROUP BY
+  |-- USE TEMP B-TREE FOR ORDER BY
+
+RESULTS:
+[
+  {
+    "player_id": 4,
+    "player_name": "Devansh Patel",
+    "team_code": "KKR",
+    "total_overs": 32,
+    "runs_conceded": 192,
+    "wickets_taken": 13,
+    "economy_rate": 6
+  },
+  {
+    "player_id": 13,
+    "player_name": "Haris Qureshi",
+    "team_code": "CSK",
+    "total_overs": 36,
+    "runs_conceded": 252,
+    "wickets_taken": 11,
+    "economy_rate": 7
+  },
+  {
+    "player_id": 37,
+    "player_name": "Imran Nadir",
+    "team_code": "DC",
+    "total_overs": 36,
+    "runs_conceded": 252,
+    "wickets_taken": 11,
+    "economy_rate": 7
+  },
+  {
+    "player_id": 3,
+    "player_name": "Carlos Vance",
+    "team_code": "RCB",
+    "total_overs": 36,
+    "runs_conceded": 252,
+    "wickets_taken": 10,
+    "economy_rate": 7
+  },
+  {
+    "player_id": 33,
+    "player_name": "Ryan Gallagher",
+    "team_code": "SRH",
+    "total_overs": 32,
+    "runs_conceded": 224,
+    "wickets_taken": 10,
+    "economy_rate": 7
+  }
+]

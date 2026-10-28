@@ -1,0 +1,53 @@
+QUERY: streaks.sql
+EXECUTION TIME: 1.86 ms | ROWS RETURNED: 5
+
+EXPLAIN QUERY PLAN:
+  |-- CO-ROUTINE qualifying
+  |-- CO-ROUTINE (subquery-4)
+  |-- CO-ROUTINE appearances
+  |-- CO-ROUTINE (subquery-5)
+  |-- SEARCH m USING COVERING INDEX idx_matches_season_date (season=?)
+  |-- SEARCH perf USING INDEX idx_perf_match_id (match_id=?)
+  |-- USE TEMP B-TREE FOR ORDER BY
+  |-- SCAN (subquery-5)
+  |-- SCAN a
+  |-- USE TEMP B-TREE FOR ORDER BY
+  |-- SCAN (subquery-4)
+  |-- SCAN q
+  |-- SEARCH p USING INTEGER PRIMARY KEY (rowid=?)
+  |-- USE TEMP B-TREE FOR GROUP BY
+  |-- USE TEMP B-TREE FOR ORDER BY
+
+RESULTS:
+[
+  {
+    "player_name": "Aarav Varma",
+    "streak_start_date": "2024-03-22",
+    "streak_end_date": "2024-03-31",
+    "streak_length": 3
+  },
+  {
+    "player_name": "Ethan Brooks",
+    "streak_start_date": "2024-03-24",
+    "streak_end_date": "2024-05-12",
+    "streak_length": 9
+  },
+  {
+    "player_name": "Liam Sterling",
+    "streak_start_date": "2024-03-24",
+    "streak_end_date": "2024-04-11",
+    "streak_length": 5
+  },
+  {
+    "player_name": "Rohan Chakraborty",
+    "streak_start_date": "2024-03-23",
+    "streak_end_date": "2024-03-30",
+    "streak_length": 3
+  },
+  {
+    "player_name": "Tariq Al-Mansoor",
+    "streak_start_date": "2024-03-23",
+    "streak_end_date": "2024-04-03",
+    "streak_length": 4
+  }
+]

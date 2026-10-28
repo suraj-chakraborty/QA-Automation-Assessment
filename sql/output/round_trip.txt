@@ -1,0 +1,71 @@
+QUERY: round_trip.sql
+EXECUTION TIME: 0.56 ms | ROWS RETURNED: 5
+
+EXPLAIN QUERY PLAN:
+  |-- SCAN a
+  |-- SEARCH b USING INDEX idx_txn_pair_ts (from_account=? AND to_account=? AND txn_ts>? AND txn_ts<?)
+  |-- USE TEMP B-TREE FOR ORDER BY
+
+RESULTS:
+[
+  {
+    "txn_a_id": 1,
+    "txn_b_id": 2,
+    "account_a": "ACC_100",
+    "account_b": "ACC_200",
+    "amount_a_to_b": 1000,
+    "amount_b_to_a": 950,
+    "pct_diff": 5,
+    "sent_at": "2024-06-01 10:00:00",
+    "returned_at": "2024-06-01 18:00:00",
+    "hours_between": 8
+  },
+  {
+    "txn_a_id": 3,
+    "txn_b_id": 4,
+    "account_a": "ACC_101",
+    "account_b": "ACC_201",
+    "amount_a_to_b": 500,
+    "amount_b_to_a": 525,
+    "pct_diff": 5,
+    "sent_at": "2024-06-02 09:00:00",
+    "returned_at": "2024-06-03 09:00:00",
+    "hours_between": 24
+  },
+  {
+    "txn_a_id": 5,
+    "txn_b_id": 6,
+    "account_a": "ACC_102",
+    "account_b": "ACC_202",
+    "amount_a_to_b": 200,
+    "amount_b_to_a": 220,
+    "pct_diff": 10,
+    "sent_at": "2024-06-04 12:00:00",
+    "returned_at": "2024-06-04 15:00:00",
+    "hours_between": 3
+  },
+  {
+    "txn_a_id": 7,
+    "txn_b_id": 8,
+    "account_a": "ACC_103",
+    "account_b": "ACC_203",
+    "amount_a_to_b": 300,
+    "amount_b_to_a": 270,
+    "pct_diff": 10,
+    "sent_at": "2024-06-05 08:00:00",
+    "returned_at": "2024-06-05 14:00:00",
+    "hours_between": 6
+  },
+  {
+    "txn_a_id": 9,
+    "txn_b_id": 10,
+    "account_a": "ACC_104",
+    "account_b": "ACC_204",
+    "amount_a_to_b": 70,
+    "amount_b_to_a": 77,
+    "pct_diff": 10,
+    "sent_at": "2024-06-06 09:00:00",
+    "returned_at": "2024-06-06 13:00:00",
+    "hours_between": 4
+  }
+]

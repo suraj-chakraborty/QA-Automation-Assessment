@@ -1,0 +1,63 @@
+QUERY: 04_impact_all_rounders.sql
+EXECUTION TIME: 1.41 ms | ROWS RETURNED: 5
+
+EXPLAIN QUERY PLAN:
+  |-- SEARCH m USING COVERING INDEX idx_matches_season (season=?)
+  |-- SEARCH perf USING INDEX idx_perf_match_id (match_id=?)
+  |-- SEARCH p USING INTEGER PRIMARY KEY (rowid=?)
+  |-- USE TEMP B-TREE FOR GROUP BY
+  |-- USE TEMP B-TREE FOR ORDER BY
+
+RESULTS:
+[
+  {
+    "player_id": 3,
+    "player_name": "Carlos Vance",
+    "team_code": "RCB",
+    "declared_role": "all-rounder",
+    "total_runs": 198,
+    "total_wickets": 10,
+    "total_overs": 36,
+    "bowling_economy": 7
+  },
+  {
+    "player_id": 5,
+    "player_name": "Kabir Sen",
+    "team_code": "RR",
+    "declared_role": "all-rounder",
+    "total_runs": 214,
+    "total_wickets": 8,
+    "total_overs": 27,
+    "bowling_economy": 7.33
+  },
+  {
+    "player_id": 40,
+    "player_name": "Alexey Petrov",
+    "team_code": "PK",
+    "declared_role": "all-rounder",
+    "total_runs": 108,
+    "total_wickets": 10,
+    "total_overs": 27,
+    "bowling_economy": 8
+  },
+  {
+    "player_id": 44,
+    "player_name": "Keshav Murthy",
+    "team_code": "LSG",
+    "declared_role": "all-rounder",
+    "total_runs": 130,
+    "total_wickets": 7,
+    "total_overs": 27,
+    "bowling_economy": 8
+  },
+  {
+    "player_id": 12,
+    "player_name": "Nikhil Reddy",
+    "team_code": "CSK",
+    "declared_role": "all-rounder",
+    "total_runs": 104,
+    "total_wickets": 8,
+    "total_overs": 27,
+    "bowling_economy": 8
+  }
+]
