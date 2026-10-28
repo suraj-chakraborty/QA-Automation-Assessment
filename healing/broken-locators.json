@@ -1,0 +1,57 @@
+[
+  {
+    "id": "SH-01",
+    "file": "pages/emi/SelfHealDemoPage.ts",
+    "line": 28,
+    "intent": "Interact with the loan amount numeric input field on the loan calculator",
+    "brokenLocator": "div.calculator-container > div:nth-child(5) > input.input-field",
+    "strategy": "positional_css",
+    "expectedAction": "click",
+    "pageUrlPath": "/",
+    "recommendedHeal": "#loanamount"
+  },
+  {
+    "id": "SH-02",
+    "file": "pages/emi/SelfHealDemoPage.ts",
+    "line": 31,
+    "intent": "Interact with the loan amount input field using an auto-generated dynamic ID",
+    "brokenLocator": "#loanamount_dynamic_hash_987654",
+    "strategy": "stale_id",
+    "expectedAction": "click",
+    "pageUrlPath": "/",
+    "recommendedHeal": "#loanamount"
+  },
+  {
+    "id": "SH-03",
+    "file": "pages/emi/SelfHealDemoPage.ts",
+    "line": 34,
+    "intent": "Interact with the loan interest rate input field via deep absolute XPath",
+    "brokenLocator": "xpath=/html/body/div[4]/div[1]/section/div/form/div[2]/div/input",
+    "strategy": "absolute_xpath",
+    "expectedAction": "click",
+    "pageUrlPath": "/",
+    "recommendedHeal": "#loaninterest"
+  },
+  {
+    "id": "SH-04",
+    "file": "pages/emi/SelfHealDemoPage.ts",
+    "line": 37,
+    "intent": "Click calculate EMI action button using an unverified accessible name",
+    "brokenLocator": "getByRole('button', { name: 'Calculate Monthly EMI Now' })",
+    "strategy": "wrong_accessible_name",
+    "expectedAction": "click",
+    "pageUrlPath": "/",
+    "recommendedHeal": "role/label-based locator or container inspection"
+  },
+  {
+    "id": "SH-05",
+    "file": "pages/emi/SelfHealDemoPage.ts",
+    "line": 40,
+    "intent": "Select Personal Loan tab using assumed data-testid attribute",
+    "brokenLocator": "getByTestId('personal-loan-tab-button')",
+    "strategy": "missing_testid",
+    "expectedAction": "click",
+    "pageUrlPath": "/",
+    "recommendedHeal": "getByRole('link', { name: 'Personal Loan' })"
+  }
+]
