@@ -1,0 +1,60 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Environment and Secret Files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*.local
+
+# TypeScript & Build Output
+dist/
+build/
+out/
+*.tsbuildinfo
+
+# Playwright & Automation Traces / Temporary Artifacts
+test-results/
+playwright-report/
+blob-report/
+traces/
+*.trace.zip
+
+# SQLite Runtime / Lock Files
+*.db-journal
+*.db-wal
+*.db-shm
+*.db
+/data/
+!api/data/
+
+# Agent Metadata & Teamwork Scratchpads (Strict R3 Compliance)
+.agents/
+
+# Operating System & IDE Files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.log
+
+# Assessment Reports Structure
+# Retain committed report folders and summary evidence (G9 / S13)
+!reports/
+!reports/**/.gitkeep
+!reports/run-summary.txt
+# Ignore ephemeral report artifacts
+reports/temp/
+reports/*.tmp
+reports/*.json
+reports/*.html
+reports/html/
+reports/screenshots/
+reports/ui/
+reports/smoke/
+
